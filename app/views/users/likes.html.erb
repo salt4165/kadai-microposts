@@ -1,0 +1,18 @@
+<h3>Favorites list</h3>
+<p>Favorites : <%= @count_favorites %></p>
+<ul class="list-unstyled">
+    <% @favorites.each do |favorite| %>
+        <li class="media mb-3">
+            <img class="mr-2 rounded" src="<%= gravatar_url(favorite.user, { size: 50 }) %>" alt="">
+            <div class="media-body">
+                <div>
+                    <%= favorite.micropost.user.name %>
+                </div>
+                <div>
+                    <p><%= favorite.micropost.content %></p>
+                </div>
+            </div>
+        </li>
+    <% end %>
+    <%= paginate @favorites %>
+</ul>
